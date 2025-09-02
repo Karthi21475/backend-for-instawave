@@ -37,8 +37,7 @@ const postSchema = new Schema(
   { timestamps: true }
 );
 
-postSchema.index({ user_id: 1, createdAt: -1 });
-postSchema.index({ createdAt: -1 });
+postSchema.index({createdAt: -1 });
 postSchema.index({ post_disc: 1 });
 
 const PostModel = mongoose.model("Post", postSchema);
