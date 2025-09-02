@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 import UserRoutes from "./routes/User.routes.js";
 import PostRoutes from "./routes/post.routes.js";
 import StoryRoutes from './routes/story.routes.js';
-
+import SearchRoutes from './routes/search.routes.js'
 
 dotenv.config();
 
@@ -24,3 +24,4 @@ mongoose.connect(process.env.MONGO_URI)
 app.use('/api/user',UserRoutes);
 app.use('/api/post',PostRoutes);
 app.use('/api/story',StoryRoutes);
+app.use('/api/search',SearchRoutes);

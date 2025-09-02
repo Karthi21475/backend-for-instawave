@@ -2,8 +2,19 @@ import mongoose from "mongoose";
 import { Schema } from "mongoose";
 import { v4 as uuidv4 } from 'uuid';
 
-const mediaItemSchema = new Schema({
-    story_id: { 
+const storySchema = new Schema({
+    user_id:{
+        type:String,
+        required:true
+    },
+    user_name:{
+        type:String,
+        required:true
+    },
+    profile_pic:{
+        type:String,
+        required:true
+    },story_id: { 
         type: String, 
         required: true,
         default:uuidv4
@@ -12,6 +23,8 @@ const mediaItemSchema = new Schema({
         type: String, 
         required: true 
     }
-}, { _id: false });
+});
 
-export default mediaItemSchema;
+const Storymodel=mongoose.model("stories",storySchema);
+
+export default Storymodel;

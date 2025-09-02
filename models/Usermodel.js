@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
-import mediaItemSchema from "./PostSchema.js";
 import { v4 as uuidv4 } from 'uuid';
 
 const userSchema = new Schema({
@@ -40,15 +39,6 @@ const userSchema = new Schema({
         default: 0 
     },
 
-    posts: { 
-        type: [mediaItemSchema], 
-        default: [] 
-    },
-    stories: {
-        type: [mediaItemSchema],
-        default: [] 
-    },
-
     role: { 
         type: String, 
         default: 'user' 
@@ -57,7 +47,7 @@ const userSchema = new Schema({
     timestamps: true,
     versionKey: false
 });
-
+userSchema.index({ user_name: 1 });
 const Usermodel=mongoose.model("Users",userSchema);
 
 export default Usermodel;
